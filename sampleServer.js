@@ -1,3 +1,4 @@
+const e = require("express");
 var http = require("http");
 fs = require("fs");
 
@@ -9,6 +10,15 @@ http
         res.write(data);
         res.end();
       });
+    } else if (req.url === "/submit") {
+      fs.readFile("signup.html", (err, data) => {
+        res.writeHead(200, { "Content-Type": "text/html" });
+        res.write(data);
+        res.end();
+      });
+    } else if (req.url === "/submitaction") {
+      res.write("Action Successfull");
+      res.end();
     } else {
       res.writeHead(404, { "Content-Type": "text/html" });
       res.write("Error 404:Page Not Found");
