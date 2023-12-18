@@ -1,4 +1,11 @@
-const req=new XMLHttpRequest();
+const axios = require("axios");
 
-req.responseXML('GET','https://jsonplaceholder.typicode.com/todos/1')
-req.send();
+axios
+  .get("https://jsonplaceholder.typicode.com/todos/1")
+  .then((response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
